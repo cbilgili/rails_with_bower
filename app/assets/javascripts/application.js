@@ -12,5 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require react/react
-//= require react/JSXTransformer
+//= require react
+//= require react_ujs
+//= require components
+//= require quotes
