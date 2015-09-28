@@ -15,37 +15,46 @@
         @setState @getInitialState()
       , 'JSON'
 
-
+    handleShowModalClick: (e) ->
+      e.preventDefault()
+      $('.modal').modal('show')
+      
     valid: ->
       @state.content
         
     render: ->
-      React.DOM.form
-        className: 'form-inline'
-        onSubmit: @handleSubmit
-        React.DOM.input
-          type: 'text'
-          className: 'form-control'
-          placeholder: 'Content'
-          name: 'content'
-          value: @state.content
-          onChange: @handleChange
-        React.DOM.input
-          type: 'text'
-          className: 'form-control'
-          placeholder: 'URL'
-          name: 'url'
-          value: @state.url
-          onChange: @handleChange
-        React.DOM.input
-          type: 'text'
-          className: 'form-control'
-          placeholder: 'Notes'
-          name: 'notes'
-          value: @state.notes
-          onChange: @handleChange
-        React.DOM.button
-          type: 'submit'
-          className: 'btn btn-primary'
-          disabled: !@valid()
-          'Create quote'
+      React.DOM.div null,
+        React.createElement QuoteFormModal, handleNewQuote: @addQuote
+        React.DOM.a
+          className: 'btn'
+          onClick: @handleShowModalClick
+          'Click me'
+      # React.DOM.form
+      #   className: 'form-inline'
+      #   onSubmit: @handleSubmit
+      #   React.DOM.input
+      #     type: 'text'
+      #     className: 'form-control'
+      #     placeholder: 'Content'
+      #     name: 'content'
+      #     value: @state.content
+      #     onChange: @handleChange
+      #   React.DOM.input
+      #     type: 'text'
+      #     className: 'form-control'
+      #     placeholder: 'URL'
+      #     name: 'url'
+      #     value: @state.url
+      #     onChange: @handleChange
+      #   React.DOM.input
+      #     type: 'text'
+      #     className: 'form-control'
+      #     placeholder: 'Notes'
+      #     name: 'notes'
+      #     value: @state.notes
+      #     onChange: @handleChange
+      #   React.DOM.button
+      #     type: 'submit'
+      #     className: 'btn btn-primary'
+      #     disabled: !@valid()
+      #     'Create quote'
