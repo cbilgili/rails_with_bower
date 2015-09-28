@@ -10,9 +10,9 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+//= require jquery/dist/jquery
 //= require jquery_ujs
+//= require semantic/dist/semantic
 //= require react
 //= require react_ujs
 //= require components
-//= require quotes
