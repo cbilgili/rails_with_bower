@@ -4,6 +4,7 @@
     "browserify": "~> 10.2.4",
     "browserify-incremental": "^3.0.1",
     "coffeeify": "~> 0.6",
+    "es6ify": "^1.6.0",
     "react": "^0.13.3",
     "react-semantic-modal": "^1.0.4",
     "reactify": "^1.1.1"
@@ -11,5 +12,8 @@
   "license": "MIT",
   "engines": {
     "node": ">= 0.10"
+  },
+  "devDependencies": {
+    "babelify": "^6.3.0"
   }
 }

@@ -1,4 +1,4 @@
-var Modal = require('modal');
+var Modal = require('react-semantic-modal');
 
 var QuoteFormModal = React.createClass({
   getInitialState: function() {
