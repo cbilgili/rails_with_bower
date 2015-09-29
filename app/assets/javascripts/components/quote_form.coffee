@@ -52,3 +52,5 @@
       #     className: 'btn btn-primary'
       #     disabled: !@valid()
       #     'Create quote'
+      
+module.exports = QuoteForm

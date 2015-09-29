@@ -38,3 +38,4 @@
           React.DOM.tbody null,
             for quote in @state.quotes
               React.createElement Quote, key: quote.id, quote: quote, handleDeleteQuote: @deleteQuote
+module.exports = @Quotes

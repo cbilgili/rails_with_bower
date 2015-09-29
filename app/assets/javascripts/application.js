@@ -16,5 +16,7 @@
 //= require react
 //= require react_ujs
 //= require react-modal/dist/react-modal
-//= require components
+
+// Pull in our top-level components in the main javascript entry point
+require('./components');
 

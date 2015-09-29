@@ -1,3 +1,4 @@
+var Modal = require('react-modal');
 var QuoteFormModal = React.createClass({
   getInitialState: function() {
     return {
@@ -44,8 +45,7 @@ var QuoteFormModal = React.createClass({
         <button className='ui button' onClick={this.openModal}>Add New Quote</button>
         <Modal
           isOpen={this.state.modalIsOpen}
-          onRequestClose={this.closeModal}
-          style={customStyles} >
+          onRequestClose={this.closeModal}>
  
           <h2>Hello</h2>
           <button onClick={this.closeModal}>close</button>
@@ -63,3 +63,5 @@ var QuoteFormModal = React.createClass({
     );
   }
 });
+
+module.exports = QuoteFormModal;

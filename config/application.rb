@@ -33,5 +33,9 @@ module WithBower
     config.active_record.raise_in_transactional_callbacks = true
 
     config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
+    # config.browserify_rails.commandline_options = " -t reactify --extension=\".js.jsx\""
+    config.browserify_rails.commandline_options = ["-t coffeeify --extension=\".coffee\"","-t reactify --extension=\".js.jsx\""]
+    # config.browserify_rails.paths << /vendor\/assets\/javascripts\/components\.js/
+    config.browserify_rails.source_map_environments << 'development'
   end
 end
