@@ -25,7 +25,7 @@
         React.DOM.h2
           className: 'title'
           'Quotes'
-        React.createElement QuoteForm, handleNewQuote: @addQuote
+        React.createElement QuoteFormModal, handleNewQuote: @addQuote
         React.DOM.table
           className: 'ui celled table'
           React.DOM.thead null,

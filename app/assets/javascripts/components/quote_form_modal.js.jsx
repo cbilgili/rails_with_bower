@@ -1,48 +1,64 @@
 var QuoteFormModal = React.createClass({
   getInitialState: function() {
     return {
-      content: '',
-      url: '',
-      notes: ''
+      content: '1',
+      url: '2',
+      notes: '3',
+      modalIsOpen: false
     };
+  },
+  openModal: function() {
+    this.setState({modalIsOpen: true});
+  },
+ 
+  closeModal: function() {
+    this.setState({modalIsOpen: false});
+  },
+  componentDidMount: function() {
+    // $('.modal')
+    //   .modal({
+    //     closable  : false,
+    //     onDeny    : function(){
+    //       window.alert('Wait not yet!');
+    //       return false;
+    //     },
+    //     onApprove : function() {
+    //       console.log(this);
+    //       this.props.handleNewQuote(quote);
+    //     }
+    //   });
+  },
+  handleChange: function(e) {
+    var name = e.target.name;
+    var obj = {};
+    obj[name] = e.target.value;
+    this.setState(obj);
+  },
+  handleShowClick: function(e) {
+    e.preventDefault();
+    $('.modal').modal('show');
   },
   render: function() {
     return (
-      <div className='ui modal'>
-        <i className='close icon'></i>
-        <div className='header'>
-          Profile Picture
-        </div>
-        <div className='image content'>
-          <div className='description'>
-            <div className='ui header'>Weve auto-chosen a profile image for you.</div>
-            <div className="ui form">
-              <div className="field">
-                <label>Quote</label>
-                <textarea></textarea>
-              </div>
-              <div className="field">
-                <label>Notes</label>
-                <textarea rows="2"></textarea>
-              </div>
-              <div className="ui form">
-                <div className="field">
-                  <label>URL</label>
-                  <input type="text" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className='actions'>
-          <div className='ui black deny button'>
-            Nope
-          </div>
-          <div className='ui positive right labeled icon button' onClick={this.handleSaveClick}>
-            Yep, thats me
-            <i className='checkmark icon'></i>
-          </div>
-        </div>
+      <div>
+        <button className='ui button' onClick={this.openModal}>Add New Quote</button>
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onRequestClose={this.closeModal}
+          style={customStyles} >
+ 
+          <h2>Hello</h2>
+          <button onClick={this.closeModal}>close</button>
+          <div>I am a modal</div>
+          <form>
+            <input />
+            <button>tab navigation</button>
+            <button>stays</button>
+            <button>inside</button>
+            <button>the modal</button>
+          </form>
+        </Modal>
+
       </div>
     );
   }

@@ -15,4 +15,6 @@
 //= require semantic/dist/semantic
 //= require react
 //= require react_ujs
+//= require react-modal/dist/react-modal
 //= require components
+

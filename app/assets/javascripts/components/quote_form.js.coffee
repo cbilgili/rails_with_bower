@@ -17,18 +17,12 @@
 
     handleShowModalClick: (e) ->
       e.preventDefault()
-      $('.modal').modal('show')
-      
+
     valid: ->
       @state.content
         
     render: ->
-      React.DOM.div null,
-        React.createElement QuoteFormModal, handleNewQuote: @addQuote
-        React.DOM.a
-          className: 'btn'
-          onClick: @handleShowModalClick
-          'Click me'
+      React.createElement QuoteFormModal, handleNewQuote: @props.handleNewQuote
       # React.DOM.form
       #   className: 'form-inline'
       #   onSubmit: @handleSubmit
