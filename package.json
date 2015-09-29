@@ -5,7 +5,7 @@
     "browserify-incremental": "^3.0.1",
     "coffeeify": "~> 0.6",
     "react": "^0.13.3",
-    "react-modal": "^0.5.0",
+    "react-semantic-modal": "^1.0.4",
     "reactify": "^1.1.1"
   },
   "license": "MIT",
