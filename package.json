@@ -5,8 +5,9 @@
     "browserify-incremental": "^3.0.1",
     "coffeeify": "~> 0.6",
     "react": "^0.13.3",
-    "react-semantic-modal": "^1.0.4",
-    "reactify": "^1.1.1"
+    "react-bootstrap": "^0.25.2",
+    "reactify": "^1.1.1",
+    "semantic-react": "0.0.2"
   },
   "license": "MIT",
   "engines": {

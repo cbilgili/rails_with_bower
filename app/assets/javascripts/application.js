@@ -12,10 +12,9 @@
 //
 //= require jquery/dist/jquery
 //= require jquery_ujs
-//= require semantic/dist/semantic
+//= require bootstrap/dist/js/bootstrap
 //= require react
 //= require react_ujs
-//= require react-modal/dist/react-modal
 
 // Pull in our top-level components in the main javascript entry point
 require('./components');

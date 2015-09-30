@@ -34,7 +34,8 @@ module WithBower
 
     config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
     # config.browserify_rails.commandline_options = " -t reactify --extension=\".js.jsx\""
-    config.browserify_rails.commandline_options = ["-t coffeeify --extension=\".coffee\"","-t reactify --extension=\".js.jsx\"", "-t reactify --extension=\".jsx\""]
+    # config.browserify_rails.commandline_options = ["-t coffeeify --extension=\".coffee\"","-g reactify","-t [ reactify --extension es6 ]", "-t reactify --extension=\".js.jsx\""]
+    config.browserify_rails.commandline_options = ["-t coffeeify --extension=\".coffee\""]
     # config.browserify_rails.paths << /vendor\/assets\/javascripts\/components\.js/
     config.browserify_rails.source_map_environments << 'development'
   end
