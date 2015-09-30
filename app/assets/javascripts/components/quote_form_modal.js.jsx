@@ -1,4 +1,5 @@
-var Modal = require('react-semantic-modal');
+var Modal = require('react-bootstrap').Modal;
+var Button = require('react-bootstrap').Button;
 
 var QuoteFormModal = React.createClass({
   getInitialState: function() {
@@ -6,66 +7,60 @@ var QuoteFormModal = React.createClass({
       content: '1',
       url: '2',
       notes: '3',
-      isOpened: false
+      showModal: false
     };
   },
-  open: function(){
-    this.setState({isOpened: true});
+  open: function() {
+        this.setState({ showModal: true });
   },
-  close: function(){
-    this.setState({isOpened: false});
+
+  close: function() {
+    this.setState({ showModal: false });
   },
-  componentDidMount: function() {
-    // $('.modal')
-    //   .modal({
-    //     closable  : false,
-    //     onDeny    : function(){
-    //       window.alert('Wait not yet!');
-    //       return false;
-    //     },
-    //     onApprove : function() {
-    //       console.log(this);
-    //       this.props.handleNewQuote(quote);
-    //     }
-    //   });
-  },
+
   handleChange: function(e) {
     var name = e.target.name;
     var obj = {};
     obj[name] = e.target.value;
     this.setState(obj);
   },
-  handleShowClick: function(e) {
-    e.preventDefault();
-    $('.modal').modal('show');
-  },
   render: function() {
     return (
       <div>
-        <button className='ui button blue' onClick={this.open.bind(this)}>Click me</button>
-        <Modal style='standard' size='fullscreen' isOpened={this.state.isOpened} closeIcon closeOnOutsideClick onClose={this.close.bind(this)}>
-          <div className='header'>
-            Profile Picture
-          </div>
-          <div className='image content'>
-            <div className='ui medium image'>
-              <img src='http://semantic-ui.com/images/avatar2/large/rachel.png' />
-            </div>
-            <div className='description'>
-              <div className='ui header'>We've auto-chosen a profile image for you.</div>
-              <p>We've grabbed the following image from the <a href='https://www.gravatar.com' target='_blank'>gravatar</a> image associated with your registered e-mail address.</p>
-              <p>Is it okay to use this photo?</p>
-            </div>
-          </div>
-          <div className='actions'>
-            <div className='ui black deny button' onClick={this.close.bind(this)}>
-              Nope
-            </div>
-            <div className='ui positive right labeled icon button'>
-              Yep, thats me
-              <i className='checkmark icon'></i>
-            </div>
-          </div>
+        <p>Click to get the full Modal experience!</p>
+
+        <Button
+          bsStyle="primary"
+          bsSize="large"
+          onClick={this.open}
+        >
+          Launch demo modal
+        </Button>
+
+        <Modal show={this.state.showModal} onHide={this.close}>
+          <Modal.Header closeButton>
+            <Modal.Title>Modal heading</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <h4>Text in a modal</h4>
+            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+
+            <hr />
+
+            <h4>Overflowing text to show scroll behavior</h4>
+            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={this.close}>Close</Button>
+          </Modal.Footer>
         </Modal>
       </div>
     );

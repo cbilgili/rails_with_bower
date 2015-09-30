@@ -12,7 +12,7 @@
 //
 //= require jquery/dist/jquery
 //= require jquery_ujs
-//= require semantic/dist/semantic
+//= require bootstrap/dist/js/bootstrap
 //= require react
 //= require react_ujs
 
