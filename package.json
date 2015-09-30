@@ -4,11 +4,9 @@
     "browserify": "~> 10.2.4",
     "browserify-incremental": "^3.0.1",
     "coffeeify": "~> 0.6",
-    "es6ify": "^1.6.0",
     "react": "^0.13.3",
     "react-bootstrap": "^0.25.2",
-    "reactify": "^1.1.1",
-    "semantic-react": "0.0.2"
+    "reactify": "^1.1.1"
   },
   "license": "MIT",
   "engines": {

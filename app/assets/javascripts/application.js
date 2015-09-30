@@ -13,7 +13,6 @@
 //= require jquery/dist/jquery
 //= require jquery_ujs
 //= require bootstrap/dist/js/bootstrap
-//= require react
 //= require react_ujs
 
 // Pull in our top-level components in the main javascript entry point
