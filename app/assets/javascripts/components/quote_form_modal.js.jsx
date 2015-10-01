@@ -4,9 +4,9 @@ var Button = require('react-bootstrap').Button;
 var QuoteFormModal = React.createClass({
   getInitialState: function() {
     return {
-      content: '1',
-      url: '2',
-      notes: '3',
+      content: '',
+      url: '',
+      notes: '',
       showModal: false
     };
   },
@@ -24,6 +24,20 @@ var QuoteFormModal = React.createClass({
     obj[name] = e.target.value;
     this.setState(obj);
   },
+
+  handleSubmit: function(e) {
+    e.preventDefault();
+    $.post('/quotes',
+           { quote: this.state },
+           function(data) {
+             this.props.handleNewQuote(data);
+             this.setState(this.getInitialState());
+           }.bind(this),
+           'JSON'
+    );
+  },
+
+
   render: function() {
     return (
       <div>
@@ -34,7 +48,7 @@ var QuoteFormModal = React.createClass({
           bsSize="large"
           onClick={this.open}
         >
-          Launch demo modal
+          Add New Quote
         </Button>
 
         <Modal show={this.state.showModal} onHide={this.close}>
@@ -42,21 +56,21 @@ var QuoteFormModal = React.createClass({
             <Modal.Title>Modal heading</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <h4>Text in a modal</h4>
-            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
-
-            <hr />
-
-            <h4>Overflowing text to show scroll behavior</h4>
-            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+            <form onSubmit={this.handleSubmit}>
+              <div className="form-group">
+                <label for="exampleInputEmail1">Quote</label>
+                <input type="text" className="form-control" name="content" placeholder="Quote" value={this.state.content} onChange={this.handleChange} />
+              </div>
+              <div className="form-group">
+                <label for="exampleInputPassword1">Notes</label>
+                <textarea className="form-control" name="notes" placeholder="Notes" value={this.state.notes} onChange={this.handleChange} />
+              </div>
+              <div className="form-group">
+                <label for="exampleInputPassword1">URL</label>
+                <input type="text" className="form-control" name="url" placeholder="URL" value={this.state.url} onChange={this.handleChange} />
+              </div>
+              <button type="submit" className="btn btn-default">Submit</button>
+            </form>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.close}>Close</Button>

@@ -12,8 +12,8 @@
     React.DOM.tr null,
       React.DOM.td null, @props.quote.id
       React.DOM.td null, @props.quote.content
-      React.DOM.td null, ""
-      React.DOM.td null, ""
+      React.DOM.td null, @props.quote.url
+      React.DOM.td null, @props.quote.notes
       React.DOM.td null,
         React.DOM.a
           className: 'btn btn-danger'

@@ -22,7 +22,7 @@ QuoteFormModal = require('./quote_form_modal')
         className: 'quotes'
         React.DOM.h1
           className: ''
-          "Welcome To Quotelist " + @state.quotes
+          "Welcome To Quotelist "
         React.DOM.h2
           className: 'title'
           'Quotes'
@@ -38,7 +38,7 @@ QuoteFormModal = require('./quote_form_modal')
               React.DOM.th null, 'Actions'
           React.DOM.tbody null,
             for quote in @state.quotes
-              React.createElement Quote, key: quote.id, quote: quote, handleDeleteQuote: @deleteQuote
+              React.createElement Quote, quote: quote, handleDeleteQuote: @deleteQuote
 
 module.exports = @Quotes
 # React.render(React.createElement(@Quotes, data: ''), document.getElementById("container"));
