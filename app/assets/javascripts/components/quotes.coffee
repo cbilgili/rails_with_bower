@@ -23,22 +23,10 @@ QuoteFormModal = require('./quote_form_modal')
         React.DOM.h1
           className: ''
           "Welcome To Quotelist "
-        React.DOM.h2
-          className: 'title'
-          'Quotes'
+        React.DOM.hr null
         React.createElement QuoteFormModal, handleNewQuote: @addQuote
-        React.DOM.table
-          className: 'ui celled table'
-          React.DOM.thead null,
-            React.DOM.tr null,
-              React.DOM.th null, 'Id'
-              React.DOM.th null, 'Content'
-              React.DOM.th null, 'Url'
-              React.DOM.th null, 'Notes'
-              React.DOM.th null, 'Actions'
-          React.DOM.tbody null,
-            for quote in @state.quotes
-              React.createElement Quote, quote: quote, handleDeleteQuote: @deleteQuote
+        for quote in @state.quotes
+          React.createElement Quote, quote: quote, handleDeleteQuote: @deleteQuote
 
 module.exports = @Quotes
 # React.render(React.createElement(@Quotes, data: ''), document.getElementById("container"));

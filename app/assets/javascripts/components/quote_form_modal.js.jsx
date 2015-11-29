@@ -5,6 +5,7 @@ var QuoteFormModal = React.createClass({
   getInitialState: function() {
     return {
       content: '',
+      author: '',
       url: '',
       notes: '',
       showModal: false
@@ -41,25 +42,28 @@ var QuoteFormModal = React.createClass({
   render: function() {
     return (
       <div>
-        <p>Click to get the full Modal experience!</p>
 
         <Button
           bsStyle="primary"
-          bsSize="large"
+          bsSize="medium"
           onClick={this.open}
         >
           Add New Quote
         </Button>
-
+        <hr />
         <Modal show={this.state.showModal} onHide={this.close}>
           <Modal.Header closeButton>
             <Modal.Title>Modal heading</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <form onSubmit={this.handleSubmit}>
-              <div className="form-group">
+              <div className="form-group form-group-lg">
                 <label for="exampleInputEmail1">Quote</label>
-                <input type="text" className="form-control" name="content" placeholder="Quote" value={this.state.content} onChange={this.handleChange} />
+                <textarea type="text" className="form-control" name="content" placeholder="Quote" value={this.state.content} onChange={this.handleChange} />
+              </div>
+              <div className="form-group">
+                <label for="exampleInputEmail1">Author</label>
+                <input type="text" className="form-control" name="author" placeholder="Author" value={this.state.author} onChange={this.handleChange} />
               </div>
               <div className="form-group">
                 <label for="exampleInputPassword1">Notes</label>
