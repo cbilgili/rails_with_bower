@@ -15,6 +15,7 @@
   ],
   "dependencies": {
     "bootstrap": "~3.3.5",
-    "flat-ui": "~2.2.2"
+    "flat-ui": "~2.2.2",
+    "react-dropzone-component": ""
   }
 }
